@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'filter_markdown', language 'en'.
+ * Privacy Subsystem implementation for filter_markdown.
  *
  * @package    filter
  * @subpackage markdown
@@ -23,5 +23,25 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-$string['filtername'] = 'Markdown';
-$string['privacy:metadata'] = 'The Markdown notation plugin does not store any personal data.';
+namespace filter_markdown\privacy;
+
+defined('MOODLE_INTERNAL') || die();
+
+/**
+ * Privacy Subsystem for filter_markdown implementing null_provider.
+ *
+ * @copyright  2020 onwards Kevin Bowler  {@link http://kpbowler.co.uk}
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}
