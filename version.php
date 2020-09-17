@@ -28,3 +28,5 @@ defined('MOODLE_INTERNAL') || die();
 $plugin->version  = 2019111800;
 $plugin->requires = 2018051700;  // Requires this Moodle version.
 $plugin->component= 'filter_markdown';
+$plugin->maturity = MATURITY_STABLE;
+$plugin->release = '1.0.0';
